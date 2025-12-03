@@ -1,0 +1,73 @@
+<!-- Header -->
+
+<button mat-icon-button (click)="openThemeMenu()" class="theme-button">
+    <mat-icon>palette</mat-icon>
+</button>
+
+<button mat-icon-button class="grid-button" (click)="toggleGrid()">
+  <mat-icon>{{ showGrid ? 'grid_off' : 'grid_on' }}</mat-icon>
+</button>
+
+<mat-form-field appearance="fill">
+    <mat-label>Pesquisar eventos futuros</mat-label>
+
+    <input matInput (input)="search($event)">
+</mat-form-field>
+
+<!--  -->
+
+<button mat-fab color="primary" class="add-button" (click)="openCreate()">
+    <mat-icon>add</mat-icon>
+</button>
+
+<!--  -->
+
+<div [class.grid-on]="showGrid">
+  <mat-calendar [(selected)]="selectedDate" (selectedChange)="onDaySelected($event)"></mat-calendar>
+</div>
+
+<div class="events-list-wrapper">
+
+  <h3 class="event-title">
+    Eventos para 
+    <span>
+      {{ isToday(selectedDate) ? 'hoje' : (selectedDate | date:'dd/MM') }}
+    </span>
+  </h3>
+
+  <div *ngFor="let ev of eventsToday" class="event-card">
+
+    <div class="icon">
+      <mat-icon>{{ ev.icon }}</mat-icon>
+    </div>
+
+    <div class="event-info">
+
+      <div class="event-header">
+        <strong>
+          <span *ngIf="ev.startTime">{{ ev.startTime }} - </span>
+
+          {{ ev.title }}
+        </strong>
+      </div>
+
+      <div class="event-location" *ngIf="ev.location">
+        <mat-icon class="loc-icon">location_on</mat-icon>
+        {{ ev.location }}
+      </div>
+
+      <div class="event-actions">
+        <mat-icon class="ok">check</mat-icon>
+        <mat-icon class="no">close</mat-icon>
+        <mat-icon class="time">schedule</mat-icon>
+      </div>
+
+    </div>
+
+    <button mat-icon-button class="edit">
+      <mat-icon>edit</mat-icon>
+    </button>
+
+  </div>
+
+</div>

@@ -1,0 +1,189 @@
+:host {
+  display: block;
+  padding: 16px;
+  border-radius: 24px;
+  background: var(--color-bg-1);
+}
+
+.agenda-container {
+  background: var(--agenda-bg);
+}
+
+// Bolinhas dos eventos
+.event-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--event-dot);
+}
+
+// Fundo da área do calendário
+.calendar-wrapper {
+  border-radius: 16px;
+  background: var(--color-bg-2);
+  padding: 12px;
+}
+
+// Botão de criar evento 
+.add-button {
+  position: fixed;
+  bottom: 16vw;
+  right: 6vh;
+  background: var(--new-event-btn-bg);
+  border-radius: 100%;
+  scale: 175%;
+  color: white;
+}
+
+// Calendário 
+::ng-deep mat-calendar {
+  border-radius: 16px;
+  background: var(--color-bg-2);
+
+  .mat-calendar-body-selected {
+    background: var(--event-dot);
+    color: white;
+  }
+
+  .mat-calendar-body-today:not(.mat-calendar-body-selected) {
+    border-color: var(--event-dot);
+  }
+}
+
+// Cards dos eventos
+.event-card {
+  background: white;
+  border-radius: 14px;
+  padding: 12px;
+  margin-bottom: 14px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+
+  .icon {
+    width: 48px;
+    height: 48px;
+    background: var(--agenda-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+  }
+}
+
+// Ícone do botão de tema
+.theme-button mat-icon{
+  color: var(--theme-icon-color);
+}
+
+// Grid do calendário 
+::ng-deep mat-calendar .mat-calendar-table {
+  border-spacing: 8px !important;
+  transition: 0.3s;
+}
+
+::ng-deep .mat-calendar-body-label {
+  display: none !important;
+}
+
+::ng-deep .grid-on .mat-calendar-body-cell {
+  outline: 1px solid var(--agenda-bg);
+  border-radius: 8px;
+}
+
+// Texto do app
+h1, h2, h3, h4, p {
+  color: var(--app-text);
+}
+
+button.mat-mdc-raised-button {
+  background: var(--app-primary);
+}
+
+mat-calendar {
+  --mdc-theme-primary: var(--app-primary);
+}
+
+.events-list-wrapper {
+  margin-top: 20px;
+}
+
+.event-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  span {
+    color: var(--app-primary);
+  }
+}
+
+.event-card {
+  display: flex;
+  padding: 12px;
+  border-radius: 12px;
+  background: var(--color-bg-2);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  margin-bottom: 14px;
+  align-items: center;
+
+  .icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: var(--agenda-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    mat-icon {
+      font-size: 32px;
+      color: var(--app-primary);
+    }
+  }
+
+  .event-info {
+    flex: 1;
+    padding-left: 10px;
+
+    .event-header {
+      font-size: 16px;
+    }
+
+    .event-location {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 3px;
+
+      .loc-icon {
+        font-size: 18px;
+        color: var(--app-primary);
+      }
+    }
+
+    .event-actions {
+      display: flex;
+      gap: 14px;
+      margin-top: 8px;
+
+      .ok {
+        color: green;
+      }
+      .no {
+        color: red;
+      }
+      .time {
+        color: goldenrod;
+      }
+    }
+  }
+
+  .edit {
+    color: var(--app-primary);
+  }
+}

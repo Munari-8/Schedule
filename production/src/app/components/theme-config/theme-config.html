@@ -1,0 +1,45 @@
+<div class="popup-wrapper">
+  <div class="theme-container">
+
+    <div class="header-icon">
+      <mat-icon>palette</mat-icon>
+    </div>
+
+    <h2>Personalizar tema</h2>
+
+    <h4>Monocromático</h4>
+
+    <div class="color-grid">
+
+      <div class="color-item">
+        <button 
+          class="color-btn roxo" 
+          [class.selected]="selected === 'roxo'"
+          (click)="select('roxo')">
+        </button>
+
+        <p>Roxo</p>
+      </div>
+
+      <div class="color-item">
+        <button 
+          class="color-btn verde" 
+          [class.selected]="selected === 'verde'"
+          (click)="select('verde')">
+        </button>
+
+        <p>Verde</p>
+      </div>
+
+      <div class="color-item">
+        <button 
+          class="color-btn laranja" 
+          [class.selected]="selected === 'laranja'"
+          (click)="select('laranja')">
+        </button>
+
+        <p>Laranja</p>
+      </div>
+    </div>
+  </div>
+</div>

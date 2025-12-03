@@ -1,0 +1,126 @@
+@use '@angular/material' as mat;
+@use './images' as *;
+
+////\\\\////\\\\ Base global ////\\\\////\\\\
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+  background-color: var(--color-bg-1);
+  color: var(--color-text);
+}
+
+////\\\\////\\\\ Paleta e variáveis ////\\\\////\\\\
+
+:root {
+  // Roxo
+  --color-purple-1: #6B449B;
+  --color-purple-2: #B281EE;
+  --color-purple-3: #E3D2F7;
+  --color-purple-4: #F0E3FF;
+  --color-purple-5: #F2EAFB;
+
+  // Verde
+  --color-green-1: #15C515;
+  --color-green-2: #95D795;
+  --color-green-3: #d4f7d2;
+  --color-green-4: #e5ffe3;
+  --color-green-5: #ecfbea;
+
+  // Laranja
+  --color-orange-1: #F2932E;
+  --color-orange-2: #F5B672;
+  --color-orange-3: #f7e6d2;
+  --color-orange-4: #fff0e3;
+  --color-orange-5: #fbf1ea;
+
+  // Estrutura geral
+  --color-bg-1: #FEF7FF;
+  --color-bg-2: #F3EDF7;
+  --color-text: black;
+
+  // Botões padrão
+  --color-confirm: #34C759;
+  --color-confirm-2: #24AE47;
+  --color-cancel: #FF383C;
+  --color-cancel-2: #E62428;
+  --color-delay: #FEBC2F;
+  --color-delay-2: #E8A71C;
+
+  // Tema ativo
+  --color-primary-1: var(--color-purple-1);
+  --color-primary-2: var(--color-purple-2);
+  --color-primary-3: var(--color-purple-3);
+  --color-primary-4: var(--color-purple-4);
+  --color-primary-5: var(--color-purple-5);
+
+  // Derivações globais
+  --agenda-bg: var(--color-primary-5);
+  --event-dot: var(--color-primary-1);
+  --theme-icon-color: var(--color-primary-1);
+  --new-event-btn-bg: var(--color-primary-1);
+  --new-event-btn-color: white;
+  --new-event-btn-radius: 16px;
+
+  --color-text-main: var(--color-text);
+}
+
+////\\\\////\\\\ Diálogos (MATDIALOG) ////\\\\////\\\\
+
+// Backdrop desfocado
+.cdk-overlay-dark-backdrop {
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.4) !important;
+}
+
+// Painel principal
+.theme-dialog-panel .mat-mdc-dialog-container {
+  padding: 0 !important;
+  border-radius: 12px;
+}
+
+// Conteúdo interno
+.theme-dialog-panel .icon-dialog-container {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centraliza tudo */
+  justify-content: center;
+  width: 100%;
+}
+
+// Título
+.theme-dialog-panel .dialog-title {
+  font-size: 18px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+// Grade de ícones
+.theme-dialog-panel .icon-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 12px !important;
+  justify-items: center; /* centraliza cada botão */
+
+  margin-bottom: 24px;
+}
+
+// Botão de ícone
+.theme-dialog-panel .icon-grid button {
+  width: 52px;
+  height: 52px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// ìcone dentro do botão
+.theme-dialog-panel .icon-grid mat-icon {
+  font-size: 32px;
+  width: 32px;
+  height: 32px;
+}

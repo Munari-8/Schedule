@@ -1,0 +1,99 @@
+<div class="container">
+
+    <!-- Topo -->
+    <div class="header">
+        <mat-icon class="header-icon">edit</mat-icon>
+        <h2>Editar compromisso</h2>
+    </div>
+
+    <!-- Selecionar ícone -->
+    <div class="icon-picker">
+        <button mat-icon-button class="icon-button">
+            <mat-icon class="icon-preview">{{ form.icon }}</mat-icon>
+        </button>
+
+        <span class="icon-label" (click)="openIconPicker()">Selecionar ícone</span>
+    </div>
+
+    <!-- Popup de ícones -->
+    <ng-template #iconPickerTemplate>
+        <div class="icon-dialog-contai">
+            <h3 class="dialog-title">Escolha um ícone</h3>
+
+            <div class="icon-grid">
+                <button mat-icon-button *ngFor="let icon of iconOptions" (click)="selectIcon(icon)">
+                    <mat-icon>{{ icon }}</mat-icon>
+                </button>
+            </div>
+        </div>
+    </ng-template>
+
+    <!-- Título -->
+    <mat-form-field appearance="fill" class="full">
+        <mat-label>Título</mat-label>
+        <input matInput [(ngModel)]="form.title">
+    </mat-form-field>
+
+    <!-- Sem horário marcado -->
+    <div class="row spaced">
+        <div class="row">
+            <mat-icon>schedule</mat-icon>
+            <span>Sem horário marcado</span>
+        </div>
+        <mat-slide-toggle [(ngModel)]="noTime"></mat-slide-toggle>
+    </div>
+
+    <!-- Datas e horários -->
+    <div class="datetime-block">
+
+    <mat-form-field appearance="fill" class="full">
+        <mat-label>Data inicial</mat-label>
+        <input matInput [matDatepicker]="startPicker" [(ngModel)]="form.startDate">
+        <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+        <mat-datepicker #startPicker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full">
+        <mat-label>Data final</mat-label>
+        <input matInput [matDatepicker]="endPicker" [(ngModel)]="form.endDate">
+        <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+        <mat-datepicker #endPicker></mat-datepicker>
+    </mat-form-field>
+
+    </div>
+
+    <div class="datetime-block" *ngIf="!noTime">
+
+    <mat-form-field appearance="fill" class="time">
+        <mat-label>Horário início</mat-label>
+        <input matInput type="time" [(ngModel)]="form.startTime">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="time">
+        <mat-label>Horário final</mat-label>
+        <input matInput type="time" [(ngModel)]="form.endTime">
+    </mat-form-field>
+
+    </div>
+
+    <!-- Localização -->
+    <mat-form-field appearance="fill" class="full">
+    <mat-label>Localização</mat-label>
+        <input matInput [(ngModel)]="form.location">
+    </mat-form-field>
+
+    <!-- Repetição -->
+    <mat-form-field appearance="fill" class="full">
+        <mat-label>Repetição</mat-label>
+        <mat-select [(ngModel)]="form.repeat">
+            <mat-option value="none">Não se repete</mat-option>
+            <mat-option value="daily">Diariamente</mat-option>
+            <mat-option value="weekly">Semanalmente</mat-option>
+            <mat-option value="monthly">Mensalmente</mat-option>
+            <mat-option value="yearly">Anualmente</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <!-- Botão salvar -->
+    <button mat-flat-button color="primary" class="save" (click)="save()">Salvar</button>
+</div>

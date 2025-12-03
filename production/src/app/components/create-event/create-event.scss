@@ -1,0 +1,192 @@
+////\\\\////\\\\ Header ////\\\\////\\\\
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding-top: 12px;
+  margin-bottom: 12px;
+}
+
+.header h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--color-primary-1);
+  margin: 0;
+}
+
+.header-icon {
+  font-size: 32px;
+  height: 32px;
+  width: 32px;
+  color: var(--color-primary-1);
+}
+
+////\\\\////\\\\ Seletor de temas ////\\\\////\\\\
+
+// Botão que abre o menu de temas
+.theme-select-button {
+  background-color: var(--color-primary-1);
+  color: white;
+}
+
+////\\\\////\\\\ Seletor de ícones ////\\\\////\\\\
+
+// Container geral da escolha do ícone
+.icon-picker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+
+  .icon-button {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    background: var(--color-primary-1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+  }
+
+  .icon-preview {
+    font-size: 48px;
+    width: 48px;
+    height: 48px;
+    color: white;
+  }
+
+  .icon-label {
+    font-size: 14px;
+    color: var(--color-primary-1);
+    font-weight: 500;
+  }
+}
+
+////\\\\////\\\\ Estrutura geral do layout ////\\\\////\\\\
+
+.container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.full {
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.spaced {
+  justify-content: space-between;
+}
+
+.save {
+  width: 100%;
+  height: 48px;
+  font-size: 16px;
+}
+
+////\\\\////\\\\ Estilos do MatSelect ////\\\\////\\\\
+
+.mat-mdc-select-panel .mat-mdc-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mat-mdc-option .material-icons, .mat-mdc-option .mat-icon {
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+.mat-mdc-option .mat-icon svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.mat-mdc-select-panel {
+  padding: 4px 0;
+}
+
+.theme-dialog-panel {
+  padding: 0 !important;
+}
+
+////\\\\////\\\\ Overrides de diálogo ////\\\\////\\\\
+
+:host {
+  display: block;
+  max-width: 480px;
+}
+
+:host ::ng-deep .mat-dialog-container {
+  max-height: 80vh !important;
+  overflow-y: auto !important;
+}
+
+:host ::ng-deep .icon-picker-dialog .mat-dialog-container {
+  padding: 0 !important;
+  max-height: 80vh !important;
+  overflow-y: auto !important;
+}
+
+:host ::ng-deep .icon-picker-dialog .icon-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 12px !important;
+  padding: 16px !important;
+  box-sizing: border-box;
+}
+
+:host ::ng-deep .icon-picker-dialog .icon-grid button {
+  width: 52px;
+  height: 52px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:host ::ng-deep .icon-picker-dialog .icon-grid mat-icon {
+  font-size: 32px;
+  width: 32px;
+  height: 32px;
+}
+
+////\\\\////\\\\ Botão "Sem horário marcado" ////\\\\////\\\\
+
+.noTime {
+  background-color: var(--primary-1);
+  color: #fff;
+}
+
+////\\\\////\\\\ Slide toggle (MAT) ////\\\\////\\\\
+
+:host ::ng-deep mat-slide-toggle .mdc-switch--selected .mdc-switch__track {
+  background-color: var(--color-primary-1) !important;
+}
+
+:host ::ng-deep mat-slide-toggle .mdc-switch--selected .mdc-switch__handle {
+  background-color: white !important;
+}
+
+:host ::ng-deep mat-slide-toggle .mdc-switch__track {
+  transition: 200ms;
+  border-radius: 20px;
+}
+
+:host ::ng-deep mat-slide-toggle .mdc-switch__handle {
+  transition: 200ms;
+  border-radius: 20px;
+}
